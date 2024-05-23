@@ -6,11 +6,13 @@ public class HerniSvet { // slouží k vytvoření herního světa
     public HerniSvet() {
         Lokace dum = new Lokace("dum", "Tady bydlíš, proto tu začíname");
         Lokace les = new Lokace("les", "Obyčejny les, rostou tu houby");
+        Lokace kuchyn = new Lokace("kuchyn", "kuchyn");
         Lokace temnyLes = new Lokace("temny_les", "Temný les, necítíš se tady dobře");
         Lokace jeskyne = new Lokace("jeskyne", "Říká se, že tady bydlí vlk!");
         Lokace chaloupka = new Lokace("chaloupka", "Tady bydlí babička");
 
         Predmet hrib = new Predmet("hrib", "Krásný hříbek", true);
+        Predmet kastrol = new Predmet("kastrol", "kastrol", true);
         Predmet hrib2 = new Predmet("hrib2", "Krásný hříbek2", true);
         Predmet hrib3 = new Predmet("hrib3", "Krásný hříbek2", true);
         Predmet hrib4 = new Predmet("hrib4", "Krásný hříbek2", true);
@@ -22,7 +24,7 @@ public class HerniSvet { // slouží k vytvoření herního světa
         Predmet hrib8 = new Predmet("hrib8", "Krásný hříbek2", true);
         Predmet hrib9 = new Predmet("hrib9", "Krásný hříbek2", true);
         Predmet hrib10 = new Predmet("hrib10", "Krásný hříbek2", true);
-        les.pridejPredmet(hrib);
+        les.pridejPredmet(kastrol);
         jeskyne.pridejPredmet(hrib2);
         jeskyne.pridejPredmet(hrib3);
         jeskyne.pridejPredmet(hrib4);
@@ -36,6 +38,9 @@ public class HerniSvet { // slouží k vytvoření herního světa
 
         dum.pridejVychod(les);
         les.pridejVychod(dum);
+
+        les.pridejVychod(kuchyn);
+        kuchyn.pridejVychod(les);
 
         les.pridejVychod(temnyLes);
         temnyLes.pridejVychod(les);
