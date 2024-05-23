@@ -38,6 +38,7 @@ public class PrikazObsahKastrolu implements IPrikaz{
         if(kastrol == null){
             return "Není tu kastrol.";
         }
+
         return "Vše v pořádku";
     }
 }
