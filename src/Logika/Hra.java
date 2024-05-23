@@ -27,6 +27,7 @@ public class Hra { //slouží k ovládání hry
         prikazy.add(new PrikazObsahKastrolu(this));
         prikazy.add(new PrikazUvar(this));
         prikazy.add(new PrikazZobrazInventar(this));
+        prikazy.add(new PrikazPromluv(this));
     }
 
     public boolean isHraSkoncila() {

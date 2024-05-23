@@ -8,7 +8,8 @@ public class Lokace {
     private String popis;
     private Set<Predmet> predmety;
 
-    private Set<Lokace> vychody; // možné východy
+    private Set<Lokace> vychody;
+    private Set<Postava> postavy;
 
     public Lokace(String nazev, String popis) {
         this.nazev = nazev;
@@ -16,6 +17,7 @@ public class Lokace {
 
         vychody = new HashSet<>();
         predmety = new HashSet<>();
+        postavy = new HashSet<>();
     }
 
     public String getNazev() {
@@ -33,6 +35,11 @@ public class Lokace {
             seznamPredmetu += p.getNazev() + " ";
         }
 
+        String seznamPostav = "Postavy: ";
+        for(Postava p : postavy){
+            seznamPostav += p.getJmeno() + " ";
+        }
+
         if(nazvyVychodu.length() < 12){
             nazvyVychodu = "Z této místnosti nevede žádná cesta :/";
         }
@@ -41,8 +48,12 @@ public class Lokace {
             seznamPredmetu = "V této místnosti se nenachází žádný předmět :/";
         }
 
+        if(seznamPostav.length() < 10){
+            seznamPostav = "V této místnosti se nenachází žádná postava :/";
+        }
+
         return "Právě se nacházíš v místnosti '" + nazev + "'.\n" +
-                popis + "\n\n" + nazvyVychodu + "\n" + seznamPredmetu;
+                popis + "\n\n" + nazvyVychodu + "\n" + seznamPredmetu + "\n" + seznamPostav;
     }
 
     public void setPopis(String popis) {
@@ -90,5 +101,19 @@ public class Lokace {
 
     public boolean odeberPredmet(Predmet predmet){
         return predmety.remove(predmet);
+    }
+
+    public void pridejPostavu(Postava postava) {
+        postavy.add(postava);
+    }
+
+    public Postava najdiPostavu(String jmeno)
+    {
+        for(Postava p : postavy){
+            if(p.getJmeno().equals(jmeno)){
+                return p;
+            }
+        }
+        return null;
     }
 }

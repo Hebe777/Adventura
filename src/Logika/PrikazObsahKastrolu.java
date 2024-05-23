@@ -35,9 +35,14 @@ public class PrikazObsahKastrolu implements IPrikaz{
                 kastrol = p.getNazev();
             }
         }
+
         if(kastrol == null){
-            return "Není tu kastrol.";
+            return "Kastrol se nenachází ani v kuchyni, ani v tvém inventáři. " +
+                    "Aby jsi mohl tento příkaz využít musíš kastrol nejdříve najít.";
         }
+
+        String text = "V kastrolu se nachází tyto ingredience: ";
+
 
         return "Vše v pořádku";
     }

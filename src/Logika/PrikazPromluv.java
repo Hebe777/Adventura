@@ -15,6 +15,17 @@ public class PrikazPromluv implements IPrikaz{
 
     @Override
     public String proved(String[] parametryPrikazu) {
-        return null;
+        if(parametryPrikazu.length < 1){
+            return "Nevím, s kým mám mluvit.";
+        }
+
+        Lokace aktualniLokace = hra.getHerniSvet().getAktualniLokace();
+        Postava postava = aktualniLokace.najdiPostavu(parametryPrikazu[0]);
+
+        if(postava == null){
+            return "Tato postava tu není.";
+        }
+
+        return postava.getProslov();
     }
 }
