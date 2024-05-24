@@ -2,6 +2,7 @@ package Logika;
 
 public class HerniSvet { // slouží k vytvoření herního světa
     private Lokace aktualniLokace;
+    private boolean vyhra;
 
     public HerniSvet() {
         Lokace dum = new Lokace("dum", "Tady bydlíš, proto tu začíname");
@@ -12,28 +13,32 @@ public class HerniSvet { // slouží k vytvoření herního světa
         Lokace chaloupka = new Lokace("chaloupka", "Tady bydlí babička");
 
         Predmet kastrol = new Predmet("kastrol", "kastrol", true);
-        Predmet hrib2 = new Predmet("hrib2", "Krásný hříbek2", true);
-        Predmet hrib3 = new Predmet("hrib3", "Krásný hříbek2", true);
-        Predmet hrib4 = new Predmet("hrib4", "Krásný hříbek2", true);
-        Predmet hrib11 = new Predmet("hrib11", "Krásný hříbek", true);
-        Predmet hrib5 = new Predmet("hrib5", "Krásný hříbek2", true);
-        Predmet hrib6 = new Predmet("hrib6", "Krásný hříbek2", true);
-        Predmet hrib7 = new Predmet("hrib7", "Krásný hříbek2", true);
-        Predmet hrib12 = new Predmet("hrib12", "Krásný hříbek", true);
-        Predmet hrib8 = new Predmet("hrib8", "Krásný hříbek2", true);
-        Predmet hrib9 = new Predmet("hrib9", "Krásný hříbek2", true);
-        Predmet hrib10 = new Predmet("hrib10", "Krásný hříbek2", true);
+        Predmet cibule = new Predmet("cibule", "Krásný hříbek2", true);
+        Predmet cesnek = new Predmet("cesnek", "Krásný hříbek2", true);
+        Predmet paprika = new Predmet("paprika", "Krásný hříbek2", true);
+        Predmet cuketa = new Predmet("cuketa", "Krásný hříbek", true);
+        Predmet lilek = new Predmet("lilek", "Krásný hříbek2", true);
+        Predmet rajce = new Predmet("rajce", "Krásný hříbek2", true);
+        Predmet olivovy_olej = new Predmet("olivovy_olej", "Krásný hříbek2", true);
+        Predmet bylinky = new Predmet("bylinky", "Krásný hříbek", true);
+        Predmet sul = new Predmet("sul", "Krásný hříbek2", true);
+        Predmet pepr = new Predmet("pepr", "Krásný hříbek2", true);
+        Predmet vino = new Predmet("vino", "Krásný hříbek2", true);
         les.pridejPredmet(kastrol);
-        les.pridejPredmet(hrib2);
-        jeskyne.pridejPredmet(hrib3);
-        jeskyne.pridejPredmet(hrib4);
-        jeskyne.pridejPredmet(hrib5);
-        jeskyne.pridejPredmet(hrib7);
-        jeskyne.pridejPredmet(hrib8);
-        jeskyne.pridejPredmet(hrib9);
-        jeskyne.pridejPredmet(hrib10);
-        jeskyne.pridejPredmet(hrib11);
-        jeskyne.pridejPredmet(hrib12);
+        les.pridejPredmet(cibule);
+        jeskyne.pridejPredmet(cesnek);
+        jeskyne.pridejPredmet(paprika);
+        jeskyne.pridejPredmet(cuketa);
+        jeskyne.pridejPredmet(lilek);
+        jeskyne.pridejPredmet(rajce);
+        jeskyne.pridejPredmet(olivovy_olej);
+        jeskyne.pridejPredmet(bylinky);
+        jeskyne.pridejPredmet(sul);
+        jeskyne.pridejPredmet(pepr);
+        jeskyne.pridejPredmet(vino);
+
+        les.pridejVychod(jeskyne);
+        jeskyne.pridejVychod(les);
 
         dum.pridejVychod(les);
         les.pridejVychod(dum);
@@ -65,12 +70,20 @@ public class HerniSvet { // slouží k vytvoření herního světa
         return aktualniLokace;
     }
 
+    public boolean isVyhra() {
+        return vyhra;
+    }
+
+    public void setVyhra(boolean vyhra) {
+        this.vyhra = vyhra;
+    }
+
     public void setAktualniLokace(Lokace aktualniLokace) {
         this.aktualniLokace = aktualniLokace;
     }
 
     public StavHry getStav(){
-        if (aktualniLokace.getNazev().equals("lod")){
+        if (aktualniLokace.getNazev().equals("kuchyn") && isVyhra()){
             return StavHry.VYHRA;
         }
 

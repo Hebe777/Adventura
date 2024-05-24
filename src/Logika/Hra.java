@@ -8,8 +8,8 @@ public class Hra { //slouží k ovládání hry
     private boolean hraSkoncila;
     private HerniSvet herniSvet;
     private Inventar inventar;
-
     private Set<IPrikaz> prikazy;
+    private int pruchody;
 
     public Hra() {
         hraSkoncila = false;

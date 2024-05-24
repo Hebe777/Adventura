@@ -18,18 +18,12 @@ public class PrikazPromluv implements IPrikaz{
     @Override
     public String proved(String[] parametryPrikazu) {
         Scanner scanner = new Scanner(System.in);
-        List<String> recept = new ArrayList<>(Arrays.asList("kastrol","cibule","cesnek","paprika","cuketa","lilek","rajce","olivovy_olej","bylinky","sul","pepr"));
         if(parametryPrikazu.length < 1){
             return "Nevím, s kým mám mluvit.";
         }
 
         Lokace aktualniLokace = hra.getHerniSvet().getAktualniLokace();
         Postava postava = aktualniLokace.najdiPostavu(parametryPrikazu[0]);
-
-
-        if(postava == null){
-            return "Tato postava tu není.";
-        }
 
         if(postava.getJmeno().equalsIgnoreCase("Alfred")){
             int i = 0;
@@ -49,14 +43,19 @@ public class PrikazPromluv implements IPrikaz{
 
 
         if(postava.getJmeno().equalsIgnoreCase("Colette")){
+            List<String> recept = new ArrayList<>(Arrays.asList("cibule","cesnek","paprika","cuketa","lilek","rajce","olivovy_olej","bylinky","sul","pepr"));
             String text = "Tomu nerozumím";
-            for(String s : hra.getInventar().getObsahBatohu().keySet()){
-                recept.remove(s);
+            Predmet kastrol = aktualniLokace.vratPredmet("kastrol");
+
+            if(kastrol == null){
+                return "Collete: Aby jsi se mnou mohl mluvit musíš nejdříve najít kastrol.";
             }
 
-            for(Predmet p : aktualniLokace.getPredmety()){
-                recept.remove(p.getNazev());
-            } //TODO
+            Set<String> obsahKastrolu = kastrol.getPredmety().keySet();
+
+            for(String s : obsahKastrolu){
+                recept.remove(s);
+            }
 
             System.out.println(postava.getProslov());
             System.out.print(">> ");
@@ -68,7 +67,7 @@ public class PrikazPromluv implements IPrikaz{
                         text += s + " ";
                     }
                 }
-                text = "Nejdřív musíš najít hrnec.";
+
             }else if(odpoved.equalsIgnoreCase("ne")){
                 text = "Kdyby jsi pomoc přeci jen někdy potřeboval, víš kde mě najdeš :)";
             }
@@ -79,6 +78,6 @@ public class PrikazPromluv implements IPrikaz{
             return postava.getProslov();
         }
 
-        return "Nevím";
+        return "Tato postavu tu není";
     }
 }

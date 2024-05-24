@@ -22,20 +22,8 @@ public class Predmet {
         return nazev;
     }
 
-    public String getPopis() {
-        return popis;
-    }
-
-    public void setPopis(String popis) {
-        this.popis = popis;
-    }
-
     public boolean isPrenositelny() {
         return prenositelny;
-    }
-
-    public void setPrenositelny(boolean prenositelny) {
-        this.prenositelny = prenositelny;
     }
 
     public boolean vlozPredmetDoKastrolu (Predmet predmet) {
@@ -52,5 +40,9 @@ public class Predmet {
             text += s + " ";
         }
         return text;
+    }
+
+    public Map<String, Predmet> getPredmety() {
+        return predmety;
     }
 }
