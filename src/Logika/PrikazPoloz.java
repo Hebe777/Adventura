@@ -14,7 +14,7 @@ public class PrikazPoloz implements IPrikaz{
 
     @Override
     public String proved(String[] parametryPrikazu) {
-        if(parametryPrikazu.length < 0){
+        if(parametryPrikazu.length < 1){
             return "Musíš zadat, jaký předmět chceš položit.";
         }
 
@@ -27,6 +27,20 @@ public class PrikazPoloz implements IPrikaz{
         Inventar inventar = hra.getInventar();
         Predmet predmet = hra.getInventar().getObsahBatohu().get(parametr);
 
+
+        if(aktualniLokace.getNazev().equals("kuchyn")  && aktualniLokace.vratPredmet("kastrol") != null){
+            Predmet ingredience = inventar.vyberVecVBatohu(parametr);
+
+            if(ingredience == null){
+                return "Ingerienci '" + parametr + "' nemáš v batohu.";
+            }
+
+            Predmet kastrol = aktualniLokace.vratPredmet("kastrol");
+            kastrol.vlozPredmetDoKastrolu(ingredience);
+            return "Ingredience " + ingredience.getNazev()
+                    + " byla přidána do hrnce.";
+        }
+
         if(predmet == null){
             return "Předmět '" + parametr + "' nemáš v batohu.";
         }
@@ -37,5 +51,6 @@ public class PrikazPoloz implements IPrikaz{
 
         aktualniLokace.pridejPredmet(predmet);
         return "Předmět '" + predmet.getNazev() + "' byl položen v lokaci '" + aktualniLokace.getNazev() + "'. ";
+
     }
 }

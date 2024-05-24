@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Inventar {
-    private static final int KAPACITA = 10;
+    private static final int KAPACITA = 11;
 
     private Map<String, Predmet> obsahBatohu;
 
@@ -45,4 +45,15 @@ public class Inventar {
 
         return text;
     }
+
+    public Predmet vyberVecVBatohu(String jmenoVeci) {
+        Predmet predmet;
+        if (obsahBatohu.containsKey(jmenoVeci)) {
+            predmet = obsahBatohu.get(jmenoVeci);
+            obsahBatohu.remove(jmenoVeci);
+            return predmet;
+        }
+        return null;
+    }
+
 }

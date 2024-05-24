@@ -24,7 +24,7 @@ public class HerniSvet { // slouží k vytvoření herního světa
         Predmet hrib9 = new Predmet("hrib9", "Krásný hříbek2", true);
         Predmet hrib10 = new Predmet("hrib10", "Krásný hříbek2", true);
         les.pridejPredmet(kastrol);
-        jeskyne.pridejPredmet(hrib2);
+        les.pridejPredmet(hrib2);
         jeskyne.pridejPredmet(hrib3);
         jeskyne.pridejPredmet(hrib4);
         jeskyne.pridejPredmet(hrib5);
@@ -50,7 +50,13 @@ public class HerniSvet { // slouží k vytvoření herního světa
         chaloupka.pridejVychod(temnyLes);
 
         les.pridejPostavu(new Postava("Alfred", "Ahoj Remy. Rád tě potkávám. Mám pro tebe menší radu. " +
+                "\nAle nebude to zadarmo. Abych ti nápovědu řekl, tak mi musíš odpovědět na jednoduchou otázku. \n" +
+                "Kolik lahví vína se nachází v jedné krabici?"));
+
+        les.pridejPostavu(new Postava("Karel", "Ahoj Remy. Rád tě potkávám. Mám pro tebe menší radu. " +
                 "\nPokud chceš přidat svému ratatouille, přidej do něj kapičku dobrého vína. Za rohem je vinárna, běž se tam kouknout."));
+
+        kuchyn.pridejPostavu(new Postava("Colette", "Ahoj Remy. Potřebuješ pomoc?"));
 
         aktualniLokace = dum;
     }
