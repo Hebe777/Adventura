@@ -8,7 +8,7 @@ public class Predmet {
     private String popis;
     private boolean prenositelny;
     private Map<String, Predmet> predmety; //kvůli kastrolu
-    private static final int KAPACITA = 10;
+    private static final int KAPACITA = 11;
 
     public Predmet(String nazev, String popis, boolean prenositelny) {
         this.nazev = nazev;

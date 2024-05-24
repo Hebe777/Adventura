@@ -59,8 +59,7 @@ public class HerniSvet { // slouží k vytvoření herního světa
                 "\nAle nebude to zadarmo. Abych ti nápovědu řekl, tak mi musíš odpovědět na jednoduchou otázku. \n" +
                 "Kolik lahví vína se nachází v jedné krabici?"));
 
-        les.pridejPostavu(new Postava("Karel", "Ahoj Remy. Rád tě potkávám. Mám pro tebe menší radu. " +
-                "\nPokud chceš přidat svému ratatouille, přidej do něj kapičku dobrého vína. Za rohem je vinárna, běž se tam kouknout."));
+        les.pridejPostavu(new Postava("Skinner", "Dávej si na mě bacha ty kryso!"));
 
         kuchyn.pridejPostavu(new Postava("Colette", "Ahoj Remy. Potřebuješ pomoc?"));
 
