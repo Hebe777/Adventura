@@ -3,6 +3,7 @@ package Logika;
 public class HerniSvet { // slouží k vytvoření herního světa
     private Lokace aktualniLokace;
     private boolean vyhra;
+    private boolean prohra;
 
     public HerniSvet() {
         Lokace dum = new Lokace("dum", "Tady bydlíš, proto tu začíname");
@@ -78,16 +79,24 @@ public class HerniSvet { // slouží k vytvoření herního světa
         this.vyhra = vyhra;
     }
 
+    public boolean isProhra() {
+        return prohra;
+    }
+
+    public void setProhra(boolean prohra) {
+        this.prohra = prohra;
+    }
+
     public void setAktualniLokace(Lokace aktualniLokace) {
         this.aktualniLokace = aktualniLokace;
     }
 
     public StavHry getStav(){
-        if (aktualniLokace.getNazev().equals("kuchyn") && isVyhra()){
+        if(isVyhra()){
             return StavHry.VYHRA;
         }
 
-        if (aktualniLokace.getNazev().equals("lod")){
+        if(isProhra()){
             return StavHry.PROHRA;
         }
 

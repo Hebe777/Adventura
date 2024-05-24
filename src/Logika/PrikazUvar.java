@@ -33,13 +33,14 @@ public class PrikazUvar implements IPrikaz{
             && ingredience.containsKey("cuketa") && ingredience.containsKey("lilek") && ingredience.containsKey("rajce")
             && ingredience.containsKey("olivovy_olej") && ingredience.containsKey("bylinky") && ingredience.containsKey("sul")
             && ingredience.containsKey("pepr")){
-            hra.setHraSkoncila(true);
             if(ingredience.containsKey("vino")){
+                hra.getHerniSvet().setVyhra(true);
                 return "Gratuluji vyhrál(a) jsi! Koukám, že jsi našel i víno. Získáváš pro tedy i bonusové body.";
             }
+            hra.getHerniSvet().setVyhra(true);
             return "Gratuluji vyhrál(a) jsi! Všechny potřebné suroviny jsi našel.";
         }else{
-            hra.setHraSkoncila(true);
+            hra.getHerniSvet().setProhra(true);
             return "Bohužel jsi prohrál(a). Buďto ti nějaké ingredience chybí a nebo jsi přidal nějaké špatné ingredience.";
         }
     }

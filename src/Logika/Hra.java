@@ -76,16 +76,16 @@ public class Hra { //slouží k ovládání hry
      * @return
      */
     public String getEpilog(){
-        String text = "Díky, že sis zahrál(a)";
+        String text = "Díky, že sis zahrál(a). Pokud nemáš bonusovou výhru, můžeš to zkusit znovu.";
 
-        if(herniSvet.getStav() == StavHry.VYHRA){
+/*        if(herniSvet.getStav() == StavHry.VYHRA){
             text = "Úspešně jsi babičce donesl bábovku a vyhral \n\n" + text;
         }
 
         if(herniSvet.getStav() == StavHry.PROHRA){
             text = "Bohužel prohrál jsi\n\n" + text;
-        }
-        return text;
+        }*/
+        return "Díky, že sis zahrál(a). Pokud nemáš bonusovou výhru, můžeš to zkusit znovu.";
     }
 
     public Inventar getInventar() {
