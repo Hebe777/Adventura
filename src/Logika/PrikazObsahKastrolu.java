@@ -1,7 +1,5 @@
 package Logika;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class PrikazObsahKastrolu implements IPrikaz{
@@ -19,7 +17,6 @@ public class PrikazObsahKastrolu implements IPrikaz{
     @Override
     public String proved(String[] parametryPrikazu) {
         Lokace aktualniLokace = hra.getHerniSvet().getAktualniLokace();
-        Set<String> inventar = hra.getInventar().getObsahBatohu().keySet();
         Predmet kastrol = aktualniLokace.vratPredmet("kastrol");
 
         if(!aktualniLokace.getNazev().equals("kuchyn")){
@@ -30,9 +27,6 @@ public class PrikazObsahKastrolu implements IPrikaz{
             return "Nejdříve musíš najít kastrol.";
         }
 
-        String text = "V kastrolu se nachází tyto ingredience: ";
-
-
-        return "Vše v pořádku";
+        return kastrol.seznamPredmetu();
     }
 }

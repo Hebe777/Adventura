@@ -37,8 +37,8 @@ public class PrikazPoloz implements IPrikaz{
 
             Predmet kastrol = aktualniLokace.vratPredmet("kastrol");
             kastrol.vlozPredmetDoKastrolu(ingredience);
-            return "Ingredience " + ingredience.getNazev()
-                    + " byla přidána do hrnce.";
+            return "Ingredience '" + ingredience.getNazev()
+                    + "' byla přidána do hrnce.";
         }
 
         if(predmet == null){
@@ -50,6 +50,7 @@ public class PrikazPoloz implements IPrikaz{
         }
 
         aktualniLokace.pridejPredmet(predmet);
+
         return "Předmět '" + predmet.getNazev() + "' byl položen v lokaci '" + aktualniLokace.getNazev() + "'. ";
 
     }

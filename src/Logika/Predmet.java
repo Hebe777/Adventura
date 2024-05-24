@@ -45,4 +45,12 @@ public class Predmet {
         }
         return false;
     }
+
+    public String seznamPredmetu(){
+        String text = this.nazev.toUpperCase() + " obsahuje tyto předměty: ";
+        for(String s : predmety.keySet()){
+            text += s + " ";
+        }
+        return text;
+    }
 }

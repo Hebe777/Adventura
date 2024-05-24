@@ -22,7 +22,7 @@ public class Inventar {
 
     public boolean odeberZInventare(Predmet predmet) {
         if(obsahBatohu.containsKey(predmet.getNazev())){
-            obsahBatohu.remove(predmet);
+            obsahBatohu.remove(predmet.getNazev());
             return true;
         }
         return false;
