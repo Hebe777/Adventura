@@ -1,20 +1,41 @@
 package Logika;
-
 import java.util.*;
 
+/**
+ * Třída PrikazPromluv implementuje příkaz "promluv" pro hru.
+ * Tento příkaz umožňuje hráči komunikovat s postavami v aktuální lokaci.
+ *
+ * @author Dominik Hebelka
+ * @version 2024-25-05
+ */
 public class PrikazPromluv implements IPrikaz{
     private Hra hra;
 
+    /**
+     * Konstruktor třídy PrikazPromluv. Inicializuje příkaz s odkazem na aktuální hru.
+     *
+     * @param hra aktuální instance hry
+     */
     public PrikazPromluv(Hra hra) {
         this.hra = hra;
     }
 
-
+    /**
+     * Metoda vrací název příkazu.
+     *
+     * @return název příkazu "promluv"
+     */
     @Override
     public String getNazev() {
         return "promluv";
     }
 
+    /**
+     * Metoda provádí příkaz "promluv". Umožňuje hráči mluvit s postavami v aktuální lokaci.
+     *
+     * @param parametryPrikazu pole parametrů příkazu (očekává se jeden parametr - jméno postavy)
+     * @return textový výsledek provedení příkazu
+     */
     @Override
     public String proved(String[] parametryPrikazu) {
         Scanner scanner = new Scanner(System.in);
@@ -25,7 +46,11 @@ public class PrikazPromluv implements IPrikaz{
         Lokace aktualniLokace = hra.getHerniSvet().getAktualniLokace();
         Postava postava = aktualniLokace.najdiPostavu(parametryPrikazu[0]);
 
-        if(postava.getJmeno().equalsIgnoreCase("Alfred")){
+        if(postava == null){
+            return "Tato postava se zde není";
+        }
+
+        if(postava.getJmeno().equals("Alfred")){
             int i = 0;
             System.out.println(postava.getProslov());
             System.out.print(">> ");

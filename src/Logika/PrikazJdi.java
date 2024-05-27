@@ -1,18 +1,41 @@
 package Logika;
 
+/**
+ * Třída PrikazJdi implementuje příkaz "jdi" pro hru.
+ * Tento příkaz umožňuje hráči přejít do jiné lokace.
+ *
+ * @author  Dominik Hebelka
+ * @version 2024-25-05
+ */
 public class PrikazJdi implements IPrikaz{
 
     private Hra hra;
 
+    /**
+     * Konstruktor třídy PrikazJdi. Inicializuje příkaz s odkazem na aktuální hru.
+     *
+     * @param hra aktuální hra
+     */
     public PrikazJdi(Hra hra){
         this.hra = hra;
     }
 
+    /**
+     * Metoda vrací název příkazu.
+     *
+     * @return název příkazu "jdi"
+     */
     @Override
     public String getNazev(){
         return "jdi";
     }
 
+    /**
+     * Metoda provádí příkaz "jdi". Přesune hráče do zadané lokace, pokud je dostupná.
+     *
+     * @param parametryPrikazu pole parametrů příkazu (očekává se jeden parametr - název lokace)
+     * @return textový výsledek provedení příkazu
+     */
     @Override
     public String proved(String[] parametryPrikazu){
 

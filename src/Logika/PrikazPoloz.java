@@ -1,17 +1,39 @@
 package Logika;
-
+/**
+ * Třída PrikazPoloz implementuje příkaz "poloz" pro hru.
+ * Tento příkaz umožňuje hráči položit předmět z inventáře do aktuální lokace nebo do kastrolu, pokud je v kuchyni.
+ *
+ * @author Dominik Hebelka
+ * @version 2024-25-05
+ */
 public class PrikazPoloz implements IPrikaz{
     private Hra hra;
 
+    /**
+     * Konstruktor třídy PrikazPoloz. Inicializuje příkaz s odkazem na aktuální hru.
+     *
+     * @param hra aktuální instance hry
+     */
     public PrikazPoloz(Hra hra) {
         this.hra = hra;
     }
 
+    /**
+     * Metoda vrací název příkazu.
+     *
+     * @return název příkazu "poloz"
+     */
     @Override
     public String getNazev() {
         return "poloz";
     }
 
+    /**
+     * Metoda provádí příkaz "poloz". Položí předmět z inventáře do aktuální lokace nebo do kastrolu, pokud je v kuchyni.
+     *
+     * @param parametryPrikazu pole parametrů příkazu (očekává se jeden parametr - název předmětu)
+     * @return textový výsledek provedení příkazu
+     */
     @Override
     public String proved(String[] parametryPrikazu) {
         if(parametryPrikazu.length < 1){
@@ -36,7 +58,9 @@ public class PrikazPoloz implements IPrikaz{
             }
 
             Predmet kastrol = aktualniLokace.vratPredmet("kastrol");
-            kastrol.vlozPredmetDoKastrolu(ingredience);
+            if(!kastrol.vlozPredmetDoKastrolu(ingredience)){
+                return "Kastrol je plný! Použít lze jen příkaz 'uvar'";
+            }
             return "Ingredience '" + ingredience.getNazev()
                     + "' byla přidána do hrnce.";
         }

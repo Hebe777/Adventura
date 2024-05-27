@@ -2,18 +2,42 @@ package Logika;
 
 import java.util.*;
 
+/**
+ * Třída PrikazUvar implementuje příkaz "uvar" pro hru.
+ * Tento příkaz umožňuje hráči uvařit pokrm, pokud jsou všechny potřebné ingredience v kastrolu v kuchyni.
+ *
+ * @author Dominik Hebelka
+ * @version 2024-25-05
+ */
 public class PrikazUvar implements IPrikaz{
     private Hra hra;
 
+    /**
+     * Konstruktor třídy PrikazUvar. Inicializuje příkaz s odkazem na aktuální hru.
+     *
+     * @param hra aktuální instance hry
+     */
     public PrikazUvar(Hra hra) {
         this.hra = hra;
     }
 
+    /**
+     * Metoda vrací název příkazu.
+     *
+     * @return název příkazu "uvar"
+     */
     @Override
     public String getNazev() {
         return "uvar";
     }
 
+    /**
+     * Metoda provádí příkaz "uvar". Slouží ke spuštění procesu vaření, podle toho zda
+     * jsou všechny potřebné ingredience v kastrolu v kuchyni, buď vyhrává nebo prohrává hru.
+     *
+     * @param parametryPrikazu pole parametrů příkazu (není očekáván žádný parametr)
+     * @return textový výsledek provedení příkazu
+     */
     @Override
     public String proved(String[] parametryPrikazu) {
         Lokace aktualniLokace = hra.getHerniSvet().getAktualniLokace();

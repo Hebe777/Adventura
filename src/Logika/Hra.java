@@ -4,13 +4,22 @@ package Logika;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Hra { //slouží k ovládání hry
+/**
+ * Třída Hra slouží k ovládání hry.
+ * Obsahuje metody pro zpracování příkazů, kontrolu stavu hry a správu herního světa.
+ * @author  Dominik Hebelka
+ * @version 2024-25-05
+ */
+public class Hra {
     private boolean hraSkoncila;
     private HerniSvet herniSvet;
     private Inventar inventar;
     private Set<IPrikaz> prikazy;
-    private int pruchody;
+    private int pruchody = 0;
 
+    /**
+     * Konstruktor třídy Hra. Inicializuje herní svět, inventář a dostupné příkazy.
+     */
     public Hra() {
         hraSkoncila = false;
         herniSvet = new HerniSvet();
@@ -30,24 +39,42 @@ public class Hra { //slouží k ovládání hry
         prikazy.add(new PrikazPromluv(this));
     }
 
+    /**
+     * Metoda vrací, zda hra skončila.
+     *
+     * @return true, pokud hra skončila, jinak false
+     */
     public boolean isHraSkoncila() {
         return hraSkoncila;
     }
 
+    /**
+     * Metoda nastavuje stav hry jako ukončený.
+     *
+     * @param hraSkoncila true, pokud hra skončila, jinak false
+     */
     public void setHraSkoncila(boolean hraSkoncila) {
         this.hraSkoncila = hraSkoncila;
     }
 
+    /**
+     * Metoda vrací aktuální herní svět.
+     *
+     * @return herní svět
+     */
     public HerniSvet getHerniSvet() {
         return herniSvet;
     }
 
-    public void setHerniSvet(HerniSvet herniSvet) {
-        this.herniSvet = herniSvet;
-    }
-
+    /**
+     * Metoda zpracovává příkazy zadané hráčem.
+     *
+     * @param prikaz text příkazu zadaný hráčem
+     * @return textový výsledek provedení příkazu
+     */
     public String zpracujPrikaz(String prikaz){
         String [] slova = prikaz.split(" ");
+        String text = "Tento příkaz neznám.";
 
         String [] parametryPrikazu = new String[slova.length - 1];
         for (int i = 1; i < slova.length; i++) {
@@ -56,6 +83,14 @@ public class Hra { //slouží k ovládání hry
 
         for (IPrikaz p : prikazy){
             if(p.getNazev().equalsIgnoreCase(slova[0])) {
+                if(pruchody >= 30){
+                    herniSvet.setProhra(true);
+                    setHraSkoncila(true);
+                    text = "Počet průchodů byl překročen.";
+                    break;
+                } else if (p.getNazev().equalsIgnoreCase("jdi")) {
+                    pruchody++;
+                }
                 return p.proved(parametryPrikazu);
             }
         }
@@ -64,30 +99,33 @@ public class Hra { //slouží k ovládání hry
             hraSkoncila = true;
         }
 
-        return "Tento příkaz neznám.";
-    }
-
-    public String getProlog(){
-        return "Vítejte. Toto je hra o ČK. Pokud nevíte co dál,...";
+        return text;
     }
 
     /**
+     * Metoda vrací prolog.
      *
-     * @return
+     * @return úvodní text hry
      */
-    public String getEpilog(){
-        String text = "Díky, že sis zahrál(a). Pokud nemáš bonusovou výhru, můžeš to zkusit znovu.";
-
-/*        if(herniSvet.getStav() == StavHry.VYHRA){
-            text = "Úspešně jsi babičce donesl bábovku a vyhral \n\n" + text;
-        }
-
-        if(herniSvet.getStav() == StavHry.PROHRA){
-            text = "Bohužel prohrál jsi\n\n" + text;
-        }*/
-        return "Díky, že sis zahrál(a). Pokud nemáš bonusovou výhru, můžeš to zkusit znovu.";
+    public String getProlog(){
+        return "Vítej ve hře 'Remyho kulinářská mise. Pokud si nebudeš během hry vědět rady můžeš použít příkaz 'napoveda', pro ukončení hry využíj příkaz 'konec'." +
+                "\n\n" + herniSvet.getAktualniLokace().getPopis();
     }
 
+    /**
+     * Metoda vrací epilog.
+     *
+     * @return závěrečný text hry
+     */
+    public String getEpilog(){
+        return "Hra je u konce. \nDíky, že sis zahrál(a). Můžeš to zkusit znovu ;)";
+    }
+
+    /**
+     * Metoda vrací inventář hráče.
+     *
+     * @return inventář hráče
+     */
     public Inventar getInventar() {
         return inventar;
     }
