@@ -23,8 +23,8 @@ public class LokaceTest {
         les = new Lokace("les", "Hustý temný les");
         mytina = new Lokace("mytina", "Malá mýtina uprostřed lesa");
         jeskyne = new Lokace("jeskyne", "Tmavá vlhká jeskyně");
-        mec = new Predmet("mec", "Starý rezavý meč", true);
-        klic = new Predmet("klic", "Zlatý klíč od truhly", true);
+        mec = new Predmet("mec", true);
+        klic = new Predmet("klic", true);
         rytir = new Postava("rytir", "Udatný rytíř");
         drak = new Postava("drak", "Nebezpečný drak");
 
@@ -74,7 +74,7 @@ public class LokaceTest {
 
     @Test
     public void testKombinaceAkci() {
-        Predmet lampa = new Predmet("lampa", "Stará olejová lampa", true);
+        Predmet lampa = new Predmet("lampa",true);
         les.pridejPredmet(lampa);
 
         assertTrue(les.getPredmety().contains(mec));

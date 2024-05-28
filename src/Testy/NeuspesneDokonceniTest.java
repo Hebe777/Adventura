@@ -73,7 +73,7 @@ public class NeuspesneDokonceniTest {
     }
 
     @Test
-    public void ProhraLimitPruchoduTest(){
+    public void testProhraLimitPruchodu(){
         for (int i = 0; i <= 14; i++){
             hra.zpracujPrikaz("jdi ulice");
             hra.zpracujPrikaz("jdi strechy");

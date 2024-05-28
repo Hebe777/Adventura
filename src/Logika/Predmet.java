@@ -21,12 +21,10 @@ public class Predmet {
      * Konstruktor třídy Predmet. Inicializuje předmět s názvem, popisem a informací o přenositelnosti.
      *
      * @param nazev název předmětu
-     * @param popis popis předmětu
      * @param prenositelny boolean označující, zda je předmět přenositelný
      */
-    public Predmet(String nazev, String popis, boolean prenositelny) {
+    public Predmet(String nazev, boolean prenositelny) {
         this.nazev = nazev;
-        this.popis = popis;
         this.prenositelny = prenositelny;
 
         predmety = new HashMap<>();
@@ -70,11 +68,11 @@ public class Predmet {
      * @return textový řetězec obsahující seznam předmětů v kastrolu
      */
     public String seznamPredmetu(){
-        String text = this.nazev.toUpperCase() + " obsahuje tyto předměty: ";
+        StringBuilder text = new StringBuilder(this.nazev.toUpperCase() + " obsahuje tyto předměty: ");
         for(String s : predmety.keySet()){
-            text += s + " ";
+            text.append(s).append(" ");
         }
-        return text;
+        return text.toString();
     }
 
     /**

@@ -87,10 +87,11 @@ public class PrikazPromluv implements IPrikaz{
             String odpoved = scanner.nextLine();
             if(odpoved.equalsIgnoreCase("ano")){
                 if(aktualniLokace.vratPredmet("kastrol") != null){
-                    text = "Chybí ti tyto ingredience: ";
+                    StringBuilder builder = new StringBuilder("Chybí ti tyto ingredience: ");
                     for(String s : recept){
-                        text += s + " ";
+                        builder.append(s).append(" ");
                     }
+                    text = builder.toString();
                 }
 
             }else if(odpoved.equalsIgnoreCase("ne")){

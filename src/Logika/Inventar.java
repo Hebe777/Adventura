@@ -63,17 +63,17 @@ public class Inventar {
      * @return textový popis obsahu inventáře
      */
     public String zobrazInventar(){
-        String text = "Aktualně máš v invetáři tyto předměty: ";
+        StringBuilder text = new StringBuilder("Aktualně máš v invetáři tyto předměty: ");
 
         for(Predmet p : obsahBatohu.values()){
-            text += p.getNazev() + " ";
+            text.append(p.getNazev()).append(" ");
         }
 
         if(text.length() < 40){
             return "Inventář je prázdný.";
         }
 
-        return text;
+        return text.toString();
     }
 
     /**

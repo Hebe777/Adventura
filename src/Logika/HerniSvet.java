@@ -22,40 +22,40 @@ public class HerniSvet { // slouží k vytvoření herního světa
         Lokace pekarstvi = new Lokace("pekarstvi", "Útulné místo s vůní čerstvého chleba a jiného pečiva. Ideální pro získání pekařských rad a potřebných zásob.");
         Lokace vinoteka = new Lokace("vinoteka", "Malebný obchod nabízející výběr nejlepších vín z celé Francie, vhodných pro zvýšení chuti vařených pokrmů.");
         Lokace zadniUlicky = new Lokace("zadniUlicky","Tajemné a často přehlížené uličky za tržištěm, kde se dají objevit méně běžné suroviny.");
-        Lokace farmarsky_trh = new Lokace("farmarsky_trh", "Venkovní trh, kde místní farmáři prodávají vše od čerstvé zeleniny po ručně dělané sýry.");
-        Lokace vegetarianska_restaurace = new Lokace("vegetarianska_restaurace", "Moderní zařízení s důrazem na zdravou a udržitelnou stravu, nabízející inspiraci pro alternativní způsoby použití zeleniny v receptech.");
+        Lokace farmarskyTrh = new Lokace("farmarskyTrh", "Venkovní trh, kde místní farmáři prodávají vše od čerstvé zeleniny po ručně dělané sýry.");
+        Lokace vegetarianskaRestaurace = new Lokace("vegetarianskaRestaurace", "Moderní zařízení s důrazem na zdravou a udržitelnou stravu, nabízející inspiraci pro alternativní způsoby použití zeleniny v receptech.");
         Lokace kuchyn = new Lokace("kuchyn", "Toto místo představuje centrum kulinárního dění, kde se shromažďují všechny ingredience a kuchyňské náčiní nezbytné pro vytvoření skvělých pokrmů.");
 
         // Suroviny potřebné k splnění receptu
-        Predmet kastrol = new Predmet("kastrol", "Velký hrnec na vaření, ideální pro přípravu polévek nebo dušených pokrmů", true);
-        Predmet cibule = new Predmet("cibule", "Základ mnoha pokrmů, cibule přidává jídlu bohatou a hlubokou chuť. Je nezbytnou součástí mnoha receptů a v ratatouille slouží jako aromatický základ.", true);
-        Predmet cesnek = new Predmet("cesnek", "Svou silnou a charakteristickou chutí dodává česnek jídlu pikantní hloubku. Používá se v malém množství, ale jeho vliv na celkovou chuť je nezaměnitelný.", true);
-        Predmet paprika = new Predmet("paprika", "Papriky přinášejí do ratatouille sladkost a barvu. Červené, zelené a žluté varianty zajišťují vizuální pestrost a jemnou chuť.", true);
-        Predmet cuketa = new Predmet("cuketa", "Cukety dodávají jídlu šťavnatost a jsou skvělé pro absorbování ostatních chutí v pokrmu. Jejich jemná textura se dobře kombinuje s ostatními surovinami.", true);
-        Predmet lilek = new Predmet("lilek", "Lilek je srdcem ratatouille, poskytuje masitou texturu a schopnost nasáknout se omáčkou a chutěmi z ostatních ingrediencí.", true);
-        Predmet rajce = new Predmet("rajce", "Rajčata jsou klíčovou ingrediencí pro vytvoření bohaté a šťavnaté omáčky v ratatouille. Přidávají potřebnou kyselost a hloubku.", true);
-        Predmet olivovy_olej = new Predmet("olivovy_olej", "Olivový olej je esenciální pro sautéing surovin a dodává jídlu bohatý podkladový tón. Tento olej také pomáhá propojit chutě ostatních surovin.", true);
-        Predmet bylinky = new Predmet("bylinky", "Čerstvé bylinky jako tymián, rozmarýn a bazalka přidávají ratatouille svěží a aromatický nádech, který zvyšuje celkovou chuť jídla.", true);
-        Predmet sul = new Predmet("sul", "Sůl je základní koření, které je nezbytné ve většině receptů, včetně ratatouille.", true);
-        Predmet pepr = new Predmet("pepr", "Pepř dodává jídlu jemnou pikantnost a komplexnost, která může zintenzivnit celkovou chuťovou paletu pokrmu.", true);
-        Predmet vino = new Predmet("vino", "Tajná přísada pro bonusovou výhru, víno zvýší chuť jídla, přidává bohatost a hloubku omáčce, a zároveň poskytuje jemný alkoholový podtón.", true);
+        Predmet kastrol = new Predmet("kastrol", true);
+        Predmet cibule = new Predmet("cibule", true);
+        Predmet cesnek = new Predmet("cesnek", true);
+        Predmet paprika = new Predmet("paprika", true);
+        Predmet cuketa = new Predmet("cuketa", true);
+        Predmet lilek = new Predmet("lilek", true);
+        Predmet rajce = new Predmet("rajce", true);
+        Predmet olivovyOlej = new Predmet("olivovyOlej", true);
+        Predmet bylinky = new Predmet("bylinky", true);
+        Predmet sul = new Predmet("sul", true);
+        Predmet pepr = new Predmet("pepr", true);
+        Predmet vino = new Predmet("vino", true);
 
         // Další předměty
-        Predmet nuz = new Predmet("nuz", "Ostrý kuchyňský nůž, nezbytný nástroj pro krájení a přípravu ingrediencí.", true);
-        Predmet vidlicka = new Predmet("vidlicka", "Základní jídelní nástroj pro manipulaci s jídlem.", true);
-        Predmet sklenice = new Predmet("sklenice", "Sklenice na vodu nebo víno.", true);
-        Predmet tvaroh = new Predmet("tvaroh", "Čerstvý tvaroh, ideální pro dezerty nebo slané pokrmy.", true);
-        Predmet mrkev = new Predmet("mrkev", "Čerstvá mrkev, křupavá a sladká, vhodná do salátů nebo jako příloha.", true);
-        Predmet salat = new Predmet("salat", "Zelený salát, nezbytný pro svěží saláty nebo jako příloha.", true);
-        Predmet citron = new Predmet("citron", "Citron pro dochucení pokrmů nebo nápojů.", true);
-        Predmet bageta = new Predmet("bageta", "Čerstvě upečená bageta, skvělá k snídani nebo jako příloha.", true);
-        Predmet vino_bile = new Predmet("vino_bile", "Láhev bílého vína, ideální pro lehké pokrmy nebo jako doplněk k rybám.", true);
-        Predmet stul = new Predmet("stul", "Velký jídelní stůl, vhodný pro servírování jídla.", false);
-        Predmet zidle = new Predmet("zidle", "Pohodlná židle k jídelnímu stolu.", false);
-        Predmet mlyncek_na_pepr = new Predmet("mlyncek_na_pepr", "Ruční mlýnek na pepř, který umožňuje čerstvě mletý pepř pro intenzivní chuť.", false);
-        Predmet police = new Predmet("police", "Dřevěná police na uskladnění kuchyňských potřeb.", false);
-        Predmet krb = new Predmet("krb", "Krb, který dodává místnosti teplo a atmosféru.", false);
-        Predmet lednice = new Predmet("lednice", "Chladnička pro uchování čerstvých potravin.", false);
+        Predmet nuz = new Predmet("nuz", true);
+        Predmet vidlicka = new Predmet("vidlicka", true);
+        Predmet sklenice = new Predmet("sklenice", true);
+        Predmet tvaroh = new Predmet("tvaroh", true);
+        Predmet mrkev = new Predmet("mrkev", true);
+        Predmet salat = new Predmet("salat", true);
+        Predmet citron = new Predmet("citron", true);
+        Predmet bageta = new Predmet("bageta", true);
+        Predmet vinoBile = new Predmet("vinoBile", true);
+        Predmet stul = new Predmet("stul", false);
+        Predmet zidle = new Predmet("zidle", false);
+        Predmet mlyncekNaPepr = new Predmet("mlyncekNaPepr", false);
+        Predmet police = new Predmet("police", false);
+        Predmet krb = new Predmet("krb", false);
+        Predmet lednice = new Predmet("lednice", false);
 
         // Postavy
         Postava alfred = new Postava("Alfred", "Ahoj Remy. Rád tě potkávám. Mám pro tebe menší radu. " +
@@ -80,17 +80,17 @@ public class HerniSvet { // slouží k vytvoření herního světa
         trziste.pridejVychod(zadniUlicky);
         zadniUlicky.pridejVychod(trziste);
 
-        trziste.pridejVychod(farmarsky_trh);
-        farmarsky_trh.pridejVychod(trziste);
+        trziste.pridejVychod(farmarskyTrh);
+        farmarskyTrh.pridejVychod(trziste);
 
         zahrada.pridejVychod(vinoteka);
         vinoteka.pridejVychod(zahrada);
 
-        pekarstvi.pridejVychod(vegetarianska_restaurace);
-        vegetarianska_restaurace.pridejVychod(pekarstvi);
+        pekarstvi.pridejVychod(vegetarianskaRestaurace);
+        vegetarianskaRestaurace.pridejVychod(pekarstvi);
 
-        farmarsky_trh.pridejVychod(kuchyn);
-        kuchyn.pridejVychod(farmarsky_trh);
+        farmarskyTrh.pridejVychod(kuchyn);
+        kuchyn.pridejVychod(farmarskyTrh);
 
         // Přidání postav
         trziste.pridejPostavu(alfred);
@@ -99,7 +99,7 @@ public class HerniSvet { // slouží k vytvoření herního světa
 
         // Rozmístění předmětů do lokací
         strechy.pridejPredmet(kastrol);
-        strechy.pridejPredmet(olivovy_olej);
+        strechy.pridejPredmet(olivovyOlej);
         strechy.pridejPredmet(pepr);
 
         ulice.pridejPredmet(cibule);
@@ -109,7 +109,7 @@ public class HerniSvet { // slouží k vytvoření herního světa
 
         trziste.pridejPredmet(paprika);
         trziste.pridejPredmet(cuketa);
-        trziste.pridejPredmet(mlyncek_na_pepr);
+        trziste.pridejPredmet(mlyncekNaPepr);
 
         zahrada.pridejPredmet(lilek);
         zahrada.pridejPredmet(rajce);
@@ -121,7 +121,7 @@ public class HerniSvet { // slouží k vytvoření herního světa
         pekarstvi.pridejPredmet(sklenice);
 
         vinoteka.pridejPredmet(vino);
-        vinoteka.pridejPredmet(vino_bile);
+        vinoteka.pridejPredmet(vinoBile);
         vinoteka.pridejPredmet(police);
         vinoteka.pridejPredmet(zidle);
 
@@ -129,18 +129,18 @@ public class HerniSvet { // slouží k vytvoření herního světa
         zadniUlicky.pridejPredmet(nuz);
         zadniUlicky.pridejPredmet(citron);
 
-        farmarsky_trh.pridejPredmet(mrkev);
-        farmarsky_trh.pridejPredmet(salat);
-        farmarsky_trh.pridejPredmet(police);
-        farmarsky_trh.pridejPredmet(stul);
+        farmarskyTrh.pridejPredmet(mrkev);
+        farmarskyTrh.pridejPredmet(salat);
+        farmarskyTrh.pridejPredmet(police);
+        farmarskyTrh.pridejPredmet(stul);
 
-        vegetarianska_restaurace.pridejPredmet(citron);
-        vegetarianska_restaurace.pridejPredmet(tvaroh);
-        vegetarianska_restaurace.pridejPredmet(zidle);
-        vegetarianska_restaurace.pridejPredmet(krb);
+        vegetarianskaRestaurace.pridejPredmet(citron);
+        vegetarianskaRestaurace.pridejPredmet(tvaroh);
+        vegetarianskaRestaurace.pridejPredmet(zidle);
+        vegetarianskaRestaurace.pridejPredmet(krb);
 
         kuchyn.pridejPredmet(nuz);
-        kuchyn.pridejPredmet(mlyncek_na_pepr);
+        kuchyn.pridejPredmet(mlyncekNaPepr);
         kuchyn.pridejPredmet(vidlicka);
         kuchyn.pridejPredmet(sklenice);
         kuchyn.pridejPredmet(lednice);
