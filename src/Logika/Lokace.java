@@ -10,12 +10,12 @@ import java.util.Set;
  * @version 2024-25-05
  */
 public class Lokace {
-    private String nazev;
-    private String popis;
-    private Set<Predmet> predmety;
+    private final String nazev;
+    private final String popis;
+    private final Set<Predmet> predmety;
 
-    private Set<Lokace> vychody;
-    private Set<Postava> postavy;
+    private final Set<Lokace> vychody;
+    private final Set<Postava> postavy;
 
     /**
      * Konstruktor pro vytvoření lokace s daným názvem a popisem.

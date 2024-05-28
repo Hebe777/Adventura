@@ -7,7 +7,7 @@ package Logika;
  * @version 2024-25-05
  */
 public class PrikazPoloz implements IPrikaz{
-    private Hra hra;
+    private final Hra hra;
 
     /**
      * Konstruktor třídy PrikazPoloz. Inicializuje příkaz s odkazem na aktuální hru.

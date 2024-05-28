@@ -10,7 +10,7 @@ import java.util.*;
  * @version 2024-25-05
  */
 public class PrikazUvar implements IPrikaz{
-    private Hra hra;
+    private final Hra hra;
 
     /**
      * Konstruktor třídy PrikazUvar. Inicializuje příkaz s odkazem na aktuální hru.

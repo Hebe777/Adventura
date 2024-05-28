@@ -7,8 +7,8 @@ package Logika;
  * @version 2024-25-5
  */
 public class Postava {
-    private String jmeno;
-    private String proslov;
+    private final String jmeno;
+    private final String proslov;
 
     /**
      * Konstruktor třídy Postava. Inicializuje postavu se jménem a proslovem.

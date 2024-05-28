@@ -12,7 +12,7 @@ import java.util.Map;
 public class Inventar {
     private static final int KAPACITA = 11;
 
-    private Map<String, Predmet> obsahBatohu;
+    private final Map<String, Predmet> obsahBatohu;
 
     /**
      * Konstruktor třídy Inventar. Inicializuje prázdný inventář.

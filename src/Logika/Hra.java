@@ -12,9 +12,9 @@ import java.util.Set;
  */
 public class Hra {
     private boolean hraSkoncila;
-    private HerniSvet herniSvet;
-    private Inventar inventar;
-    private Set<IPrikaz> prikazy;
+    private final HerniSvet herniSvet;
+    private final Inventar inventar;
+    private final Set<IPrikaz> prikazy;
     private int pruchody = 0;
 
     /**

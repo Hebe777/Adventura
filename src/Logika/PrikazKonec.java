@@ -9,7 +9,7 @@ package Logika;
  */
 public class PrikazKonec implements IPrikaz{
 
-    private Hra hra;
+    private final Hra hra;
 
     /**
      * Konstruktor třídy PrikazKonec. Inicializuje příkaz s odkazem na aktuální hru.

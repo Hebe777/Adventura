@@ -13,8 +13,8 @@ import Logika.*;
  */
 public class TextUI
 {
-    private Scanner scanner;
-    private Hra hra;
+    private final Scanner scanner;
+    private final Hra hra;
 
     /**
      * Konstruktor třídy TextUI. Inicializuje textové uživatelské rozhraní s odkazem na aktuální hru.

@@ -9,7 +9,7 @@ package Logika;
  */
 public class PrikazJdi implements IPrikaz{
 
-    private Hra hra;
+    private final Hra hra;
 
     /**
      * Konstruktor třídy PrikazJdi. Inicializuje příkaz s odkazem na aktuální hru.

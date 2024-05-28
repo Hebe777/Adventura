@@ -8,7 +8,7 @@ package Logika;
  * @version 2024-25-05
  */
 public class PrikazSeber implements IPrikaz{
-    private Hra hra;
+    private final Hra hra;
 
     /**
      * Konstruktor třídy PrikazSeber. Inicializuje příkaz s odkazem na aktuální hru.

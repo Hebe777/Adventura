@@ -8,7 +8,7 @@ package Logika;
  * @version 2024-25-05
  */
 public class PrikazZobrazInventar implements IPrikaz{
-    private Hra hra;
+    private final Hra hra;
 
     /**
      * Konstruktor třídy PrikazZobrazInventar. Inicializuje příkaz s odkazem na aktuální hru.

@@ -11,9 +11,9 @@ import java.util.Map;
  * @version 2024-25-05
  */
 public class Predmet {
-    private String nazev;
-    private boolean prenositelny;
-    private Map<String, Predmet> predmety;
+    private final String nazev;
+    private final boolean prenositelny;
+    private final Map<String, Predmet> predmety;
     private static final int KAPACITA = 11;
 
     /**
