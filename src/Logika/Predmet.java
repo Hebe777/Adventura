@@ -12,7 +12,6 @@ import java.util.Map;
  */
 public class Predmet {
     private String nazev;
-    private String popis;
     private boolean prenositelny;
     private Map<String, Predmet> predmety;
     private static final int KAPACITA = 11;

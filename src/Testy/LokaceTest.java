@@ -1,6 +1,5 @@
 package Testy;
 
-import Logika.Hra;
 import Logika.Lokace;
 import Logika.Postava;
 import Logika.Predmet;

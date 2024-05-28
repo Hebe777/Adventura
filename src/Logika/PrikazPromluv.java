@@ -62,13 +62,13 @@ public class PrikazPromluv implements IPrikaz{
                 System.out.print(">> ");
                 i++;
             }
-            return "Správně! Víno najdeš ve 'vinotéce'.\nAby ses tam dostal musíš se vrátit zpátky do 'Ulic Paříže', " +
-                    "poté se musíš vydat do 'Zahrady v parku', odkud ji už uvidíš :)";
+            return "Správně! Víno najdeš ve 'vinotéce'.\nAby ses tam dostal musíš se vrátit zpátky do 'ulic', " +
+                    "poté se musíš vydat do 'zahrad', odkud ji už uvidíš :)";
         }
 
 
-        if(postava.getJmeno().equalsIgnoreCase("Colette")){
-            List<String> recept = new ArrayList<>(Arrays.asList("cibule","cesnek","paprika","cuketa","lilek","rajce","olivovy_olej","bylinky","sul","pepr"));
+        if(postava.getJmeno().equals("Colette")){
+            List<String> recept = new ArrayList<>(Arrays.asList("cibule","cesnek","paprika","cuketa","lilek","rajce","olivovyOlej","bylinky","sul","pepr"));
             String text = "Tomu nerozumím";
             Predmet kastrol = aktualniLokace.vratPredmet("kastrol");
 
@@ -100,7 +100,7 @@ public class PrikazPromluv implements IPrikaz{
             return text;
         }
 
-        if(postava.getJmeno().equalsIgnoreCase("Skinner")){
+        if(postava.getJmeno().equals("Skinner")){
             return postava.getProslov();
         }
 

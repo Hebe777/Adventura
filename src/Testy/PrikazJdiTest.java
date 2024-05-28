@@ -1,12 +1,5 @@
 package Testy;
-import static org.junit.jupiter.api.Assertions.*;
 
-import Logika.Hra;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import Logika.PrikazJdi;
-import Logika.HerniSvet;
-import Logika.Lokace;
 
 public class PrikazJdiTest {
     /*private Hra hra;

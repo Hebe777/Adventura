@@ -68,7 +68,19 @@ public class PrikazUvar implements IPrikaz{
         }else{
             hra.setHraSkoncila(true);
             hra.getHerniSvet().setProhra(true);
-            return "Bohužel jsi prohrál(a). Buďto ti nějaké ingredience chybí a nebo jsi přidal nějaké špatné ingredience.";
+
+            if(ingredience.size() < 10){
+                StringBuilder builder = new StringBuilder();
+                List<String> recept = new ArrayList<>(Arrays.asList("cibule","cesnek","paprika","cuketa","lilek","rajce","olivovyOlej","bylinky","sul","pepr"));
+                for(String s : kastrol.getPredmety().keySet()){
+                    recept.remove(s);
+                }
+                for (String r : recept){
+                    builder.append(r).append(" ");
+                }
+                return "Bohužel jsi prohrál(a). Chyběli ti tyto ingerdience: " + recept;
+            }
+            return "Bohužel jsi prohrál(a). Použil jsi špatné ingredience.";
         }
     }
 }
