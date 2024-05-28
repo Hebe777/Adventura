@@ -21,7 +21,7 @@ public class HerniSvet { // slouží k vytvoření herního světa
         Lokace zahrada = new Lokace("zahrada", "Klidná oáza uprostřed města s kvetoucími květinami a zelenými keři, kde se nachází také malá vinotéka.");
         Lokace pekarstvi = new Lokace("pekarstvi", "Útulné místo s vůní čerstvého chleba a jiného pečiva. Ideální pro získání pekařských rad a potřebných zásob.");
         Lokace vinoteka = new Lokace("vinoteka", "Malebný obchod nabízející výběr nejlepších vín z celé Francie, vhodných pro zvýšení chuti vařených pokrmů.");
-        Lokace zadni_ulicky = new Lokace("zadni_ulicky","Tajemné a často přehlížené uličky za tržištěm, kde se dají objevit méně běžné suroviny.");
+        Lokace zadniUlicky = new Lokace("zadniUlicky","Tajemné a často přehlížené uličky za tržištěm, kde se dají objevit méně běžné suroviny.");
         Lokace farmarsky_trh = new Lokace("farmarsky_trh", "Venkovní trh, kde místní farmáři prodávají vše od čerstvé zeleniny po ručně dělané sýry.");
         Lokace vegetarianska_restaurace = new Lokace("vegetarianska_restaurace", "Moderní zařízení s důrazem na zdravou a udržitelnou stravu, nabízející inspiraci pro alternativní způsoby použití zeleniny v receptech.");
         Lokace kuchyn = new Lokace("kuchyn", "Toto místo představuje centrum kulinárního dění, kde se shromažďují všechny ingredience a kuchyňské náčiní nezbytné pro vytvoření skvělých pokrmů.");
@@ -77,8 +77,8 @@ public class HerniSvet { // slouží k vytvoření herního světa
         ulice.pridejVychod(pekarstvi);
         pekarstvi.pridejVychod(ulice);
 
-        trziste.pridejVychod(zadni_ulicky);
-        zadni_ulicky.pridejVychod(trziste);
+        trziste.pridejVychod(zadniUlicky);
+        zadniUlicky.pridejVychod(trziste);
 
         trziste.pridejVychod(farmarsky_trh);
         farmarsky_trh.pridejVychod(trziste);
@@ -93,7 +93,7 @@ public class HerniSvet { // slouží k vytvoření herního světa
         kuchyn.pridejVychod(farmarsky_trh);
 
         // Přidání postav
-        vinoteka.pridejPostavu(alfred);
+        trziste.pridejPostavu(alfred);
         kuchyn.pridejPostavu(skinner);
         kuchyn.pridejPostavu(colette);
 
@@ -125,9 +125,9 @@ public class HerniSvet { // slouží k vytvoření herního světa
         vinoteka.pridejPredmet(police);
         vinoteka.pridejPredmet(zidle);
 
-        zadni_ulicky.pridejPredmet(bylinky);
-        zadni_ulicky.pridejPredmet(nuz);
-        zadni_ulicky.pridejPredmet(citron);
+        zadniUlicky.pridejPredmet(bylinky);
+        zadniUlicky.pridejPredmet(nuz);
+        zadniUlicky.pridejPredmet(citron);
 
         farmarsky_trh.pridejPredmet(mrkev);
         farmarsky_trh.pridejPredmet(salat);

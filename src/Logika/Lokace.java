@@ -3,7 +3,8 @@ package Logika;
 import java.util.HashSet;
 import java.util.Set;
 /**
- * Třída lokace přestavuje prostory ve hře,  mezi kterými se postava může pohybovat
+ * Třída Lokace představuje prostory ve hře, mezi kterými se postava může pohybovat.
+ * Lokace může obsahovat předměty a postavy a může mít východy do jiných lokací.
  *
  * @author Dominik Hebelka
  * @version 2024-25-05
@@ -17,7 +18,8 @@ public class Lokace {
     private Set<Postava> postavy;
 
     /**
-     * Konstruktor pro vytvoření lokaci s daným názvem a popisem lokace.
+     * Konstruktor pro vytvoření lokace s daným názvem a popisem.
+     *
      * @param nazev Název lokace
      * @param popis Popis lokace
      */
@@ -30,40 +32,46 @@ public class Lokace {
         postavy = new HashSet<>();
     }
 
+    /**
+     * Vrací název lokace.
+     *
+     * @return Název lokace
+     */
     public String getNazev() {
         return nazev;
     }
 
     /**
-     * Metoda slouží k vypsání informací o lokaci
-     * @return Výstupem je řetězec s informacemi
+     * Vrací popis lokace, včetně seznamu východů, předmětů a postav v lokaci.
+     *
+     * @return Řetězec s popisem lokace
      */
     public String getPopis() {
-        String nazvyVychodu = "Místnosti: ";
+        StringBuilder nazvyVychodu = new StringBuilder("Místnosti: ");
         for(Lokace l : vychody){
-            nazvyVychodu += l.getNazev() + " ";
+            nazvyVychodu.append(l.getNazev()).append(" ");
         }
 
-        String seznamPredmetu = "Předměty: ";
+        StringBuilder seznamPredmetu = new StringBuilder("Předměty: ");
         for(Predmet p : predmety){
-            seznamPredmetu += p.getNazev() + " ";
+            seznamPredmetu.append(p.getNazev()).append(" ");
         }
 
-        String seznamPostav = "Postavy: ";
+        StringBuilder seznamPostav = new StringBuilder("Postavy: ");
         for(Postava p : postavy){
-            seznamPostav += p.getJmeno() + " ";
+            seznamPostav.append(p.getJmeno()).append(" ");
         }
 
         if(nazvyVychodu.length() < 12){
-            nazvyVychodu = "Z této místnosti nevede žádná cesta :/";
+            nazvyVychodu = new StringBuilder("Z této místnosti nevede žádná cesta");
         }
 
         if(seznamPredmetu.length() < 11){
-            seznamPredmetu = "V této místnosti se nenachází žádný předmět :/";
+            seznamPredmetu = new StringBuilder("V této místnosti se nenachází žádný předmět");
         }
 
         if(seznamPostav.length() < 10){
-            seznamPostav = "V této místnosti se nenachází žádná postava :/";
+            seznamPostav = new StringBuilder("V této místnosti se nenachází žádná postava");
         }
 
         return "Právě se nacházíš v místnosti '" + nazev + "'.\n" +
@@ -71,20 +79,20 @@ public class Lokace {
     }
 
     /**
-     * Metoda slouží k přidaní východů.
+     * Přidá východ do této lokace.
      *
-     * @param cilovaLokace lokace
-     * @return true pokud se poraří východ přidat; false pokud se přidání nepodaří
+     * @param cilovaLokace Lokace, do které tento východ vede
+     * @return true, pokud se podaří východ přidat; false, pokud se přidání nepodaří
      */
     public boolean pridejVychod(Lokace cilovaLokace) {
         return vychody.add(cilovaLokace);
     }
 
     /**
-     * Metoda kontroluje, zda se z lokace ve které se nacházíme, dá jít do lokace v parametru
+     * Kontroluje, zda se z této lokace dá jít do lokace zadané v parametru.
      *
-     * @param nazevLokace nazév lokace do které chceme jít
-     * @return true pokud se do lokace v parametru dá jít; false pokud se do lokace v parametru z aktuální lokace nedá jít
+     * @param nazevLokace Název lokace, do které chceme jít
+     * @return true, pokud se do lokace dá jít; false, pokud se nedá
      */
     public boolean maVychod(String nazevLokace){
         for(Lokace l : vychody){
@@ -95,18 +103,29 @@ public class Lokace {
         return false;
     }
 
+    /**
+     * Vrací sadu východů z této lokace.
+     *
+     * @return Sada východů
+     */
     public Set<Lokace> getVychody() {
         return vychody;
     }
 
+    /**
+     * Vrací sadu postav v této lokaci.
+     *
+     * @return Sada postav
+     */
     public Set<Postava> getPostavy() {
         return postavy;
     }
 
     /**
-     * Metoda slouží jako getter pro lokaci, kterou definujeme v parametru
-     * @param nazevLokace název hledané lokace
-     * @return pokud se lokace nachází v možný výhodech, tak ji vrátí; pokud se lokace ve východech nenachází vratí null
+     * Vrací lokaci, která odpovídá názvu v parametru, pokud se tato lokace nachází mezi východy.
+     *
+     * @param nazevLokace Název hledané lokace
+     * @return Lokace, pokud se nachází mezi východy; null, pokud se nenachází
      */
     public Lokace vratVychod(String nazevLokace){
         for(Lokace l : vychody){
@@ -116,10 +135,12 @@ public class Lokace {
         }
         return null;
     }
+
     /**
-     * Metoda zjistí, zda se v lokaci nachází předmět s daným názvem.
-     * @param nazevPredmetu název hledaného předmětu
-     * @return vrací se entita předmětu
+     * Vrací předmět s daným názvem, pokud se nachází v této lokaci.
+     *
+     * @param nazevPredmetu Název hledaného předmětu
+     * @return Předmět, pokud se nachází v této lokaci; null, pokud se nenachází
      */
     public Predmet vratPredmet(String nazevPredmetu){
         for(Predmet p : predmety){
@@ -130,30 +151,49 @@ public class Lokace {
         return null;
     }
 
+    /**
+     * Vrací sadu předmětů v této lokaci.
+     *
+     * @return Sada předmětů
+     */
     public Set<Predmet> getPredmety() {
         return predmety;
     }
 
     /**
-     * Metoda přidá předmět do lokace.
+     * Přidá předmět do této lokace.
+     *
      * @param predmet Předmět, který bude vložen
+     * @return true, pokud se předmět podaří přidat; false, pokud se nepodaří
      */
     public boolean pridejPredmet(Predmet predmet) {
         return predmety.add(predmet);
     }
 
+    /**
+     * Odebere předmět z této lokace.
+     *
+     * @param predmet Předmět, který bude odebrán
+     * @return true, pokud se předmět podaří odebrat; false, pokud se nepodaří
+     */
     public boolean odeberPredmet(Predmet predmet){
         return predmety.remove(predmet);
     }
 
+    /**
+     * Přidá postavu do této lokace.
+     *
+     * @param postava Postava, která bude přidána
+     */
     public void pridejPostavu(Postava postava) {
         postavy.add(postava);
     }
 
     /**
-     * Metoda zjistí, zda se v lokaci nachází postava se jménem, které je v parametru
+     * Zjistí, zda se v lokaci nachází postava se zadaným jménem.
+     *
      * @param jmeno Jméno hledané postavy
-     * @return pokud se postava nachází v lokaci, metoda ji vrátí, pokud ne, tak vrací null
+     * @return Postava, pokud se nachází v lokaci; null, pokud se nenachází
      */
     public Postava najdiPostavu(String jmeno)
     {
@@ -164,5 +204,4 @@ public class Lokace {
         }
         return null;
     }
-
 }

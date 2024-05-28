@@ -7,7 +7,18 @@ package Logika;
  * @version 2024-25-05
  */
 public enum StavHry {
+    /**
+     * Hra skončila vítězstvím hráče.
+     */
     VYHRA,
+
+    /**
+     * Hra skončila prohrou hráče.
+     */
     PROHRA,
+
+    /**
+     * Hra stále probíhá.
+     */
     HRA_BEZI
 }
