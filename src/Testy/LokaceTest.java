@@ -8,6 +8,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Třída LokaceTest testuje funkčnost třídy Lokace.
+ *
+ * Testuje se správnost navigace mezi lokacemi, přítomnost předmětů a postav
+ * v lokacích a správné chování prázdné lokace.
+ *
+ * @author Dominik Hebelka
+ * @version 2024-25-05
+ */
 public class LokaceTest {
     private Lokace les;
     private Lokace mytina;
@@ -17,6 +26,10 @@ public class LokaceTest {
     private Postava rytir;
     private Postava drak;
 
+    /**
+     * Nastavení výchozího stavu před každým testem.
+     * Inicializuje lokace, předměty a postavy a propojuje je.
+     */
     @BeforeEach
     public void setUp() {
         les = new Lokace("les", "Hustý temný les");
@@ -32,15 +45,17 @@ public class LokaceTest {
         mytina.pridejVychod(jeskyne);
         jeskyne.pridejVychod(mytina);
 
-        // Přidání předmětů do lokací
         les.pridejPredmet(mec);
         mytina.pridejPredmet(klic);
 
-        // Přidání postav do lokací
         les.pridejPostavu(rytir);
         jeskyne.pridejPostavu(drak);
     }
 
+    /**
+     * Testuje navigaci mezi lokacemi.
+     * Ověřuje, že každá lokace má správné východy.
+     */
     @Test
     public void testNavigaceMeziLokacemi() {
         assertEquals(mytina, les.vratVychod("mytina"));
@@ -49,6 +64,10 @@ public class LokaceTest {
         assertEquals(mytina, jeskyne.vratVychod("mytina"));
     }
 
+    /**
+     * Testuje přítomnost předmětů v jednotlivých lokacích.
+     * Ověřuje, že předměty jsou správně umístěny.
+     */
     @Test
     public void testPredmetyVLokacich() {
         assertTrue(les.getPredmety().contains(mec));
@@ -56,6 +75,10 @@ public class LokaceTest {
         assertTrue(jeskyne.getPredmety().isEmpty());
     }
 
+    /**
+     * Testuje přítomnost postav v jednotlivých lokacích.
+     * Ověřuje, že postavy jsou správně umístěny.
+     */
     @Test
     public void testPostavyVLokacich() {
         assertTrue(les.getPostavy().contains(rytir));
@@ -63,6 +86,10 @@ public class LokaceTest {
         assertTrue(mytina.getPostavy().isEmpty());
     }
 
+    /**
+     * Testuje prázdnou lokaci.
+     * Ověřuje, že nově vytvořená lokace neobsahuje žádné předměty, východy ani postavy.
+     */
     @Test
     public void testPrazdnaLokace() {
         Lokace prazdnaLokace = new Lokace("poust", "Nekonečná písečná poušť");
@@ -71,6 +98,10 @@ public class LokaceTest {
         assertTrue(prazdnaLokace.getPostavy().isEmpty());
     }
 
+    /**
+     * Testuje kombinaci akcí v lokaci.
+     * Přidání předmětů a postav do lokace a kontrola východů.
+     */
     @Test
     public void testKombinaceAkci() {
         Predmet lampa = new Predmet("lampa",true);
@@ -80,7 +111,6 @@ public class LokaceTest {
         assertTrue(les.getPredmety().contains(lampa));
         assertEquals(2, les.getPredmety().size());
 
-        // Přidání další postavy do lesu
         Postava obchodnik = new Postava("obchodnik", "Cestující obchodník");
         les.pridejPostavu(obchodnik);
 
@@ -88,7 +118,6 @@ public class LokaceTest {
         assertTrue(les.getPostavy().contains(obchodnik));
         assertEquals(2, les.getPostavy().size());
 
-        // Kontrola východů po změně
         assertEquals(mytina, les.vratVychod("mytina"));
         assertNull(les.vratVychod("jeskyne"));
     }

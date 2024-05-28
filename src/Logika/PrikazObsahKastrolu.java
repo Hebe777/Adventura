@@ -45,10 +45,10 @@ public class PrikazObsahKastrolu implements IPrikaz{
         }
 
         if(kastrol == null){
-            return "Nejdříve musíš najít kastrol.";
+            return "Kastrol není v kuchyni.";
         }
 
-        if(kastrol.seznamPredmetu().isEmpty()){
+        if(kastrol.getPredmety().isEmpty()){
             return "Kastrol je prázdný.";
         }
         return kastrol.seznamPredmetu();

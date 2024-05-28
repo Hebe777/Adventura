@@ -62,7 +62,7 @@ public class PrikazPoloz implements IPrikaz{
                 return "Kastrol je plný! Použít lze jen příkaz 'uvar'";
             }
             return "Ingredience '" + ingredience.getNazev()
-                    + "' byla přidána do hrnce.";
+                    + "' byla přidána do kastrolu.";
         }
 
         if(predmet == null){
@@ -75,7 +75,7 @@ public class PrikazPoloz implements IPrikaz{
 
         aktualniLokace.pridejPredmet(predmet);
 
-        return "Předmět '" + predmet.getNazev() + "' byl položen v lokaci '" + aktualniLokace.getNazev() + "'. ";
+        return "Předmět '" + predmet.getNazev() + "' byl položen v lokaci '" + aktualniLokace.getNazev() + "'.";
 
     }
 }

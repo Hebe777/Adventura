@@ -55,7 +55,7 @@ public class PrikazUvar implements IPrikaz{
         Map<String, Predmet> ingredience = kastrol.getPredmety();
         if(ingredience.containsKey("cibule") && ingredience.containsKey("cesnek") && ingredience.containsKey("paprika")
             && ingredience.containsKey("cuketa") && ingredience.containsKey("lilek") && ingredience.containsKey("rajce")
-            && ingredience.containsKey("olivovy_olej") && ingredience.containsKey("bylinky") && ingredience.containsKey("sul")
+            && ingredience.containsKey("olivovyOlej") && ingredience.containsKey("bylinky") && ingredience.containsKey("sul")
             && ingredience.containsKey("pepr")){
             if(ingredience.containsKey("vino")){
                 hra.getHerniSvet().setVyhra(true);

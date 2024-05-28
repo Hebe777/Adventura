@@ -4,14 +4,31 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * Třída UspesneDokonceniTest testuje úspěšné dokončení hry.
+ *
+ * Testuje se scénáře, kdy hráč úspěšně dokončí hru se všemi potřebnými ingrediencemi
+ * a kdy hráč dokončí hru se všemi potřebnými ingrediencemi včetně bonusové ingredience.
+ *
+ * @author Dominik Hebelka
+ * @version 2024-25-05
+ */
 public class UspesneDokonceniTest {
     private Hra hra;
 
+    /**
+     * Nastavení výchozího stavu před každým testem.
+     * Inicializuje novou hru.
+     */
     @Before
     public void setUp() {
         hra = new Hra();
     }
 
+    /**
+     * Testuje úspěšné dokončení hry se všemi potřebnými ingrediencemi.
+     * Ověřuje, že hra je úspěšně dokončena, pokud hráč shromáždí všechny potřebné ingredience.
+     */
     @Test
     public void testUspesneDokonceniHry() {
         hra.zpracujPrikaz("seber kastrol");
@@ -69,6 +86,10 @@ public class UspesneDokonceniTest {
 
     }
 
+    /**
+     * Testuje úspěšné dokončení hry se všemi potřebnými ingrediencemi a bonusovou ingrediencí.
+     * Ověřuje, že hra je úspěšně dokončena s bonusem, pokud hráč shromáždí všechny potřebné ingredience a víno.
+     */
     @Test
     public void testUspesneDokonceniHryBonus() {
         hra.zpracujPrikaz("seber kastrol");

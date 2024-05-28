@@ -2,7 +2,7 @@
 package UI;
 
 import java.util.*;
-import Logika.*;
+import Logika.Hra;
 
 /**
  * Třída TextUI poskytuje textové uživatelské rozhraní pro hru.

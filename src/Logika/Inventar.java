@@ -28,7 +28,7 @@ public class Inventar {
      * @return true, pokud byl předmět úspěšně vložen, jinak false
      */
     public boolean vlozDoInventare(Predmet predmet){
-        if(obsahBatohu.size() < KAPACITA){
+        if(obsahBatohu.size() < KAPACITA && predmet.isPrenositelny()){
             obsahBatohu.put(predmet.getNazev(), predmet);
             return true;
         }

@@ -54,7 +54,7 @@ public class Predmet {
      * @return true, pokud byl předmět úspěšně vložen, jinak false
      */
     public boolean vlozPredmetDoKastrolu (Predmet predmet) {
-        if (predmety.size() < KAPACITA ) {
+        if (predmety.size() < KAPACITA) {
             predmety.put(predmet.getNazev(), predmet);
             return true;
         }
@@ -67,7 +67,7 @@ public class Predmet {
      * @return textový řetězec obsahující seznam předmětů v kastrolu
      */
     public String seznamPredmetu(){
-        StringBuilder text = new StringBuilder(this.nazev.toUpperCase() + " obsahuje tyto předměty: ");
+        StringBuilder text = new StringBuilder("V kastrolu je: ");
         for(String s : predmety.keySet()){
             text.append(s).append(" ");
         }

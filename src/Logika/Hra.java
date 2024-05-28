@@ -7,6 +7,7 @@ import java.util.Set;
 /**
  * Třída Hra slouží k ovládání hry.
  * Obsahuje metody pro zpracování příkazů, kontrolu stavu hry a správu herního světa.
+ *
  * @author  Dominik Hebelka
  * @version 2024-25-05
  */
